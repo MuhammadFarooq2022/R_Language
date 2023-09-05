@@ -1,0 +1,27 @@
+---
+title: "Observations"
+author: "MFarooq"
+date: "2023-04-03"
+output: pdf_document
+---
+# Explore the data
+
+1. We use data called "diamonds", This dataset has 53940 rows and 10 columns.
+2. We have 7 numerical(6 num, and 1 int) and 3 categorical(ordinal) variables.
+3. The price of diamond increases with an increase in carat as shown in the scatter plot. This has further verified with Spearman's correlation having a R2 value of 0.9628828 (A highly positive correlation).
+4. Main difference of cut unique values for price
+
+                         diff         lwr        upr     p adj
+Good-Fair          -429.89331  -740.44880  -119.3378 0.0014980
+Very Good-Fair     -376.99787  -663.86215   -90.1336 0.0031094
+Ideal-Fair         -901.21579 -1180.57139  -621.8602 0.0000000
+Premium-Good        655.39325   475.65120   835.1353 0.0000000
+Ideal-Good         -471.32248  -642.36268  -300.2823 0.0000000
+Premium-Very Good   602.49781   467.76249   737.2331 0.0000000
+Ideal-Very Good    -524.21792  -647.10467  -401.3312 0.0000000
+Ideal-Premium     -1126.71573 -1244.62267 -1008.8088 0.0000000
+
+After running the One Way ANOVA test we found that the prices among cut values are statistically different from each other when alpha = 0.05. Therefore, we conducted the Tukey HSD test and plot the letters using 'multcompView' package, as shown in figure ?
+Major Observations are as follows:
+- The highest price of diamonds exists in the Fair and Premium cut category, which differs statistically from Good, Very Good and Ideal cut prices. 
+- On the other hand the price of diamond having Ideal cut is lowest among all cut types. 

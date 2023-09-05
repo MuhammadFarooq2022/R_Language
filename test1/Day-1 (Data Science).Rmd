@@ -1,0 +1,139 @@
+---
+title: "Day-1 (Data Science)"
+author: "Muhammad Farooq"
+date: "2022-08-24"
+output:
+  html_document: default
+  pdf_document: default
+---
+This is our first day of data science course.
+My name is Muhammad Farooq and I am a Data scientist student.
+
+Basic Plotting:
+
+1- plot
+
+```{r}
+data("iris")
+plot(iris$Sepal.Length, iris$Sepal.Width)
+```
+
+2- histogram
+```{r}
+hist(iris$Sepal.Length)
+```
+
+3- box plot
+```{r}
+boxplot(Sepal.Length ~ Species, data = iris)
+```
+
+4- image graph
+```{r}
+x <- matrix(1:120, 12, 10)
+x
+image(x)
+```
+
+5- strip chart
+```{r}
+stripchart(iris$Sepal.Length)
+```
+
+6- qqnorm plot
+```{r}
+qqnorm(iris$Sepal.Length)
+```
+
+Intermediate Plotting:
+
+1- scatter plot
+```{r}
+data("iris")
+plot(iris$Sepal.Length, iris$Sepal.Width, xlab = "Sepal length", ylab = "Sepal Width", main = "Iris Scatter Plot")
+```
+use the same method to change labels for other plots
+
+2- relational plot
+```{r}
+plot(iris)
+```
+
+corr plot
+```{r}
+library(corrplot)
+```
+
+First of all we need to calculate the correlation
+```{r}
+c <- cor(iris[,-5])
+corrplot(c)
+```
+
+Another diverse data set
+```{r}
+c <- cor(mtcars)
+corrplot(c)
+```
+
+Number format
+```{r}
+corrplot(c, method = "number")
+```
+
+Upper plot
+```{r}
+corrplot(c, method = "number", type = "upper")
+```
+
+Lower plot
+```{r}
+corrplot(c, method = "number", type = "lower")
+```
+
+Square plot
+```{r}
+corrplot(c, method = "square", type = "lower")
+```
+
+```{r}
+corrplot(c, method = "square")
+```
+
+```{r}
+corrplot(c, method = "shade")
+```
+
+Order from high to low
+```{r}
+corrplot(c, method = "square", type = "lower", order = "AOE")
+```
+
+Ellipse plot
+```{r}
+corrplot(c, method = "ellipse", type = "lower")
+```
+
+Mixed corrplot
+```{r}
+corrplot.mixed(c)
+corrplot.mixed(c, lower = "number", upper = "pie", order = "AOE")
+```
+
+Clustering
+```{r}
+corrplot(c, order = "hclust", addrect = 2)
+```
+
+Another method of  making a correlation plot
+```{r}
+library(PerformanceAnalytics)
+chart.Correlation(c,  histogram = TRUE, method = "pearson")
+```
+
+For more information please visit this link:
+https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html
+
+Also see this link:
+http://r-coder.com/correlation-plot-r/
+

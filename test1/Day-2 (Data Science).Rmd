@@ -1,0 +1,93 @@
+---
+title: "Day-2"
+author: "Muhammad Farooq"
+date: "2022-08-26"
+output: html_document
+---
+
+## This notebook is about statistical methods and their use in our research.
+###**List of basic statistical methods**
+1- Shapiro wilk's Method
+2- t.test (independent, Paired)
+3- ANOVA (One way ANOVA and TWO way ANOVA)
+4- ANCOVA
+5- MANOVA
+6- MANCOVA
+7- wilcoxon Rank
+8- Mann whitney U test
+9- Correlation (Pearson and Spearman)
+10-Krukshul walis test
+11-Regression (Correlation)
+12-PostHoc Analysis (Multiple Comparison of Means)
+
+### Check the normal distribution of the data
+```{r}
+iris
+hist(iris$Sepal.Length)
+qqnorm(iris$Sepal.Length)
+x <- density(iris$Sepal.Length)
+plot(x)
+```
+
+All these plots can tell us visually if the data is normally distributed.
+Another method is to test with Shapiro Wilk's method
+```{r}
+shapiro.test(iris$Sepal.Length)
+```
+**Hypothesis: The data is normal.**
+*If P-value < 0.05 then we will reject our hypothesis.*
+**From the output, the p-value > 0.05 implying that the distribution of the data are not significantly different from normal distribution. In other words, we can say that our data is normal.**
+
+```{r}
+hist(iris$Sepal.Width)
+qqnorm(iris$Sepal.Width)
+y <- density(iris$Sepal.Width)
+plot(y)
+shapiro.test(iris$Sepal.Width)
+```
+```{r}
+hist(iris$Petal.Length)
+qqnorm(iris$Petal.Length)
+z <- density(iris$Petal.Length)
+plot(z)
+shapiro.test(iris$Petal.Length)
+```
+
+```{r}
+hist(iris$Petal.Width)
+qqnorm(iris$Petal.Width)
+z1 <- density(iris$Petal.Width)
+plot(z1)
+shapiro.test(iris$Petal.Width)
+```
+
+##t.test
+###one sample t.test
+```{r}
+t.test(iris$Sepal.Length, mu=0)
+```
+
+###Tow sample t.test for dependent (two numeric variables should be there)
+```{r}
+t.test(iris$Sepal.Length, iris$Sepal.Width)
+boxplot(iris$Sepal.Length)
+boxplot(iris$Sepal.Width)
+```
+
+###Tow sample t.test for independent variable (one numeric and one binary factor)
+```{r}
+x <- subset(iris, iris$Species=="virginica" | iris$Species=="setosa")
+x
+t.test(x$Sepal.Length ~ x$Species)
+```
+
+### Paired t.test (both should be numeric variables)
+```{r}
+t.test(x$Sepal.Length, x$Sepal.Width, paired = TRUE)
+```
+
+###we have to write these p-values in the following order:
+p<0.05 *,
+p<0.01 **,
+p<0.001 ***,
+
