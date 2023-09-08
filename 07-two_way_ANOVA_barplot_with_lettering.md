@@ -1,7 +1,6 @@
 7 Steps guide to make Publication Ready Bargraphs from Scratch (TWO-Way
 ANOVA)
 ================
-RwithAammar
 12/12/2021
 
 ### This guide will show you how to make publication ready barplots with *TWO-WAY ANOVA* from scratch.
@@ -260,13 +259,11 @@ dev.off()
     ## png 
     ##   2
 
-subscribe share our video at this
-(link)\[<https://www.youtube.com/channel/UCmNXJXWONLNF6bdftGY0Otw>\]
 
 Best regards,
 
-*Dr. Muhammad Aammar Tufail*
+*Muhammad Farooq*
 
 Google Certified Data Analyst
 
-(Ask you questions!)
+(Ask any questions!)
